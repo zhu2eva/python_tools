@@ -42,8 +42,10 @@ def send_text_reply():
 @app.route('/douyin_video/', methods=['get'])
 def get_douyin_video():
     a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
     def is_odd(n):
         return n % 2 == 0
+
     print(list(filter(is_odd(), a)))
     import uuid
     from time import sleep
@@ -134,5 +136,9 @@ def submit(task_id):
     return jsonify(response)
 
 
+from gevent import pywsgi
+
 if __name__ == '__main__':
-    app.run(port=21427)
+    # server = pywsgi.WSGIServer(('0.0.0.0', 12346), app)
+    # server.serve_forever()
+    app.run(port=12345)
